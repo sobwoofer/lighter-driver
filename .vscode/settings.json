@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "array": "cpp",
+        "compare": "cpp",
+        "functional": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "ranges": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "random": "cpp",
+        "memory": "cpp",
+        "system_error": "cpp"
+    }
+}
