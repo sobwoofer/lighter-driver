@@ -3,7 +3,7 @@
 
 #define COLOR_ORDER GRB
 #define CHIPSET     WS2812
-#define NUM_LEDS    10
+#define NUM_LEDS    9
 
 #define BRIGHTNESS_HIGH  200
 #define BRIGHTNESS_LOW  100

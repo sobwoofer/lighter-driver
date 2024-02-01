@@ -10,7 +10,9 @@ bool gpio_update = false;
 
 void gpio_setup()
 {
+    pinMode(VOLUME, INPUT);
     pinMode(BUTTON, INPUT);
+    pinMode(ACTION, INPUT_PULLUP);
     pinMode(LED, OUTPUT);
     digitalWrite(LED, LOW);
     gpio_update = false;

@@ -57,6 +57,7 @@ void wifi_connect()
             WiFi.softAP("PetFeeder");
 
             Serial.println(WiFi.softAPIP());
+            WiFi.setAutoConnect(true);
             //WiFi.setHostname("feeder-server.pp.ua"); //TODO test it
 
             
