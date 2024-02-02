@@ -13,15 +13,14 @@ String responseHTML = ""
                       "<meta name='viewport' content='width=device-width'>"
                       "<title>Welcome to FirePlace</title></head><body>"
                       "<h1>Welcome to FirePlace</h1>"
-                      " <a href='/red'>red</a> <a href='/green'>green</a> <a href='/blue'>blue</a>"
+                      " <a href='/red'>red</a> <a href='/green'>green</a> <a href='/blue'>blue</a> <a href='/yellow'>yellow</a> <br>"
+                      " <a href='/bright_low'>low</a> <a href='/bright_medium'>medium</a> <a href='/bright_high'>high</a>"
                       "</body></html>";
 
 void redFire()
 {
     Serial.println("red fire");
-    color1 = CRGB::Black;
-    color2 = CRGB::Red;
-    color3 = CRGB::Yellow;
+    selectColor("red");
     setupLamp();
     webServer.send(200, "text/html", responseHTML);
 }
@@ -29,9 +28,7 @@ void redFire()
 void greenFire()
 {
     Serial.println("green fire");
-    color1 = CRGB::Black;
-    color2 = CRGB::Green;
-    color3 = CRGB::GreenYellow;
+    selectColor("green");
     setupLamp();
     webServer.send(200, "text/html", responseHTML);
 }
@@ -39,9 +36,39 @@ void greenFire()
 void blueFire()
 {
     Serial.println("blue fire");
-    color1 = CRGB::Black;
-    color2 = CRGB::Blue;
-    color3 = CRGB::BlueViolet;
+    selectColor("blue");
+    setupLamp();
+    webServer.send(200, "text/html", responseHTML);
+}
+
+void yellowFire()
+{
+    Serial.println("yellow fire");
+    selectColor("yellow");
+    setupLamp();
+    webServer.send(200, "text/html", responseHTML);
+}
+
+void brightHigh()
+{
+    Serial.println("bright high");
+    selectBrightness(220);
+    setupLamp();
+    webServer.send(200, "text/html", responseHTML);
+}
+
+void brightMedium()
+{
+    Serial.println("bright medium");
+    selectBrightness(110);
+    setupLamp();
+    webServer.send(200, "text/html", responseHTML);
+}
+
+void brightLow()
+{
+    Serial.println("bright low");
+    selectBrightness(50);
     setupLamp();
     webServer.send(200, "text/html", responseHTML);
 }
@@ -58,6 +85,10 @@ void setupCaptivePortal() {
     webServer.on("/red", redFire);
     webServer.on("/green", greenFire);
     webServer.on("/blue", blueFire);
+    webServer.on("/yellow", yellowFire);
+     webServer.on("/bright_low", brightLow);
+     webServer.on("/bright_medium", brightMedium);
+     webServer.on("/bright_high", brightHigh);
      // replay to all requests with same HTML
      webServer.onNotFound([]() {
             webServer.send(200, "text/html", responseHTML);
