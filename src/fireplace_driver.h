@@ -33,6 +33,8 @@ void setupPlayer()
 void setupFireplaceDriver()
 {  
   setupPlayer();
+  selectBrightness(110);
+  selectColor("red");
   setupLamp();
 
   Serial.print("setup driver done");

@@ -16,9 +16,8 @@ bool gReverseDirection = false;
 CRGB leds[NUM_LEDS];
 CRGBPalette16 gPal;
 
-CRGB color1 = CRGB::Black;
-CRGB color2 = CRGB::Red;
-CRGB color3 = CRGB::Yellow;
+String colorType;
+int brightnessType;
 
 void lampOff()
 {//TODO create turn off all lamps
@@ -29,26 +28,39 @@ void lampOff()
     FastLED.show();
 }
 
+void selectBrightness(int newBrightness) {
+  brightnessType = newBrightness;
+}
+
+void selectColor(String newColor) {
+  colorType = newColor;
+}
+
 void setupLamp() {
   //delay(3000); // sanity delay
   FastLED.addLeds<CHIPSET, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
-  FastLED.setBrightness(BRIGHTNESS_LOW);
+  FastLED.setBrightness(brightnessType);
     lampOff();
   // This first palette is the basic 'black body radiation' colors,
   // which run from black to red to bright yellow to white.
   //gPal = HeatColors_p;
-  gPal = CRGBPalette16( color1, color2, color3);
-  
-  // These are other ways to set up the color palette for the 'fire'.
-  // First, a gradient from black to red to yellow to white -- similar to HeatColors_p
-  //   gPal = CRGBPalette16( CRGB::Black, CRGB::Red, CRGB::Yellow, CRGB::White);
-  
-  // Second, this palette is like the heat colors, but blue/aqua instead of red/yellow
-  //   gPal = CRGBPalette16( CRGB::Black, CRGB::Blue, CRGB::Aqua,  CRGB::White);
-  
-  // Third, here's a simpler, three-step gradient, from black to red to white
-  //   gPal = CRGBPalette16( CRGB::Black, CRGB::Red, CRGB::White);
 
+  if (colorType == "red") {
+    gPal = CRGBPalette16(CRGB::Black, CRGB::Red, CRGB::Yellow);
+  }
+
+  if (colorType == "green") {
+    gPal = CRGBPalette16(CRGB::Black, CRGB::Green, CRGB::YellowGreen);
+  }
+
+  if (colorType == "blue") {
+    gPal = CRGBPalette16(CRGB::Black, CRGB::Blue, CRGB::Aqua);
+  }
+
+  if (colorType == "yellow") {
+    gPal = CRGBPalette16(CRGB::Black, CRGB::Yellow, CRGB::White);
+  }
+  
 }
 
 void Fire2012WithPalette()
