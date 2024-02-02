@@ -16,6 +16,10 @@ bool gReverseDirection = false;
 CRGB leds[NUM_LEDS];
 CRGBPalette16 gPal;
 
+CRGB color1 = CRGB::Black;
+CRGB color2 = CRGB::Red;
+CRGB color3 = CRGB::Yellow;
+
 void lampOff()
 {//TODO create turn off all lamps
     FastLED.clearData();
@@ -33,7 +37,7 @@ void setupLamp() {
   // This first palette is the basic 'black body radiation' colors,
   // which run from black to red to bright yellow to white.
   //gPal = HeatColors_p;
-  gPal = CRGBPalette16( CRGB::Black, CRGB::Red, CRGB::Yellow);
+  gPal = CRGBPalette16( color1, color2, color3);
   
   // These are other ways to set up the color palette for the 'fire'.
   // First, a gradient from black to red to yellow to white -- similar to HeatColors_p
