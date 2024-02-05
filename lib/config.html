@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" rel="stylesheet" crossorigin="anonymous">       
+         <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            h1.welcome, h3 {
+                color: #fff!important;
+                text-align: center;
+                font-family: sans-serif;
+                font-weight: 400;
+            }
+            .portal-bg {
+                background-color: #000;
+            }
+            .nav {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .icons-row a img {
+                width: 70px;
+            }
+
+            .icons-row.color-row .button {
+                width: 25%;
+            }
+
+            .icons-row.bright-row .button {
+                width: 33.33%;
+            }
+
+            .icons-row .button {
+                
+                display: block;
+                float: left;
+                text-align: center;
+            }
+            .icons-row .button i {
+                font-size: 77px;
+            }
+            .row {
+                height: 162px;
+            }
+            .icons-row {
+                margin-top: 31px;
+            }
+
+            .button:hover img {
+                opacity: 1;
+                -webkit-animation: flash 1.5s;
+                animation: flash 1.5s;
+            }
+            @-webkit-keyframes flash {
+                0% {
+                    opacity: .4;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            @keyframes flash {
+                0% {
+                    opacity: .4;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            .row a {
+                color: white;
+            }
+            .color-red a i {
+                color:red;
+            }
+            .color-green a i {
+                color:green;
+            }
+            .color-yellow a i {
+                color: yellow;
+            }
+            .color-blue a i {
+                color:blue;
+            }
+            .bi-palette-fill::before { content: "\f4b0"; }
+        </style>
+        
+    </head>
+    <body>
+        <body class="portal-bg" id="portal">
+
+            <div class="nav">
+                <h1 class="welcome">Welcome Fireplace</h1>
+                <div class="text-center">
+                    <div class="wrapper-custom">
+                        <div class="row">
+                            <h3>Select color</h3>
+                            <div class="icons-row color-row">
+                                <div class="button color-red"><a href='/red'><i class="bi bi-palette-fill"></i>red</a></div>
+                                <div class="button color-green"><a href='/green'><i class="bi bi-palette-fill"></i>green</a></div>
+                                <div class="button color-blue"><a href='/blue'><i class="bi bi-palette-fill"></i>blue</a></div>
+                                <div class="button color-yellow"><a href='/yellow'><i class="bi bi-palette-fill"></i>yellow</a></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h3>Select Type</h3>
+                            <div class="icons-row color-row">
+                                <div class="button"><a href='/light_fire'><i class="bi bi-fire"></i>fire</a></div>
+                                <div class="button"><a href='/light_ocean'><i class="bi bi-soundwave"></i>ocean</a></div>
+                                <div class="button"><a href='/light_strips'><i class="bi bi-droplet-fill"></i>snake</a></div>
+                                <div class="button"><a href='/light_temperature'><i class="bi bi-rainbow"></i>rainbow</a></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h3>Chose Brightness</h3>
+                            <div class="icons-row bright-row">
+                                <div class="button"><a href='/bright_low'><i class="bi bi-brightness-high"></i>low</a></div>
+                                <div class="button"><a href='/bright_medium'><i class="bi bi-brightness-alt-high-fill"></i>medium</a></div> 
+                                <div class="button"><a href='/bright_high'><i class="bi bi-brightness-high-fill"></i>high</a></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h3>Select Sound</h3>
+                            <div class="icons-row color-row">
+                                <div class="button"><a href='/sound_fire'><i class="bi bi-fire"></i>fireplace</a></div>
+                                <div class="button"><a href='/sound_forest'><i class="bi bi-soundwave"></i>forest</a></div>
+                                <div class="button"><a href='/sound_sea'><i class="bi bi-droplet-fill"></i>sea</a></div>
+                                <div class="button"><a href='/sound_city'><i class="bi bi-rainbow"></i>city</a></div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+        
+            </div>
+    </body>
+</html>
