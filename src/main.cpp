@@ -1,7 +1,8 @@
 
 #include <Arduino.h>
-#include <gpio_setup.h>
 #include <ArduinoJson.h>
+#include <storage.h>
+#include <gpio_setup.h>
 
 #include <led_driver.h>
 #include <player_driver.h>
@@ -10,7 +11,8 @@
 int mainSwitcher = 0;
 
 void setup() {
-  Serial.begin(115200);
+  SPIFFS.begin();
+  load_param();
   gpio_setup();
   setupLightDriver();
   setupPlayer();
@@ -35,11 +37,13 @@ void loop() {
     lampOff();
   }
 
-// Serial.println("loop main switcher: ");
-// Serial.print(mainSwitcher);
+// Serial.println(PARAM_SOUND_TYPE);
+// Serial.print(param(PARAM_SOUND_TYPE));
+//  Serial.print(param(PARAM_BRIGHTNES_TYPE).toInt());
+
   if (mainSwitcher) {
     lightLoop();
     playerLoop();
-     Serial.println("loopLamp");
+    //  Serial.println("loopLamp");
   }
 }

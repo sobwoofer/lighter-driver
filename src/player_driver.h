@@ -14,6 +14,9 @@ DFRobotDFPlayerMini myDFPlayer;
 
 void setupPlayer() 
 {
+  soundType = param(PARAM_SOUND_TYPE).toInt();
+  // Serial.println("Sound type: ");
+  // Serial.println(soundType);
   mySoftwareSerial.begin(9600);
   Serial.begin(115200);
   // Start communication with DFPlayer Mini
@@ -34,31 +37,38 @@ int getVolume()
 void playSound()
 {
     myDFPlayer.stop();
-    myDFPlayer.disableLoop();
     myDFPlayer.volume(getVolume());
     switch (soundType)
     {
     case SOUND_FIRE:
       myDFPlayer.play(1);
+      myDFPlayer.loop(1);
       break;
     case SOUND_FOREST:
       myDFPlayer.play(2);
+      myDFPlayer.loop(2);
       break;
     case SOUND_SEA:
       myDFPlayer.play(3);
+      myDFPlayer.loop(3);
       break;
     case SOUND_RAIN:
       myDFPlayer.play(4);
+      myDFPlayer.loop(4);
       break;
     
     default:
      myDFPlayer.play(1);
+     myDFPlayer.loop(1);
     }
-    myDFPlayer.enableLoop();
+    
 }
 
 void selectSoundType(int newSoundType) {
   soundType = newSoundType;
+  write_param(PARAM_SOUND_TYPE, String(soundType));
+  save_flag = true;
+  save_param();
   playSound();
 }
 
