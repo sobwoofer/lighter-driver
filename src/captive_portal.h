@@ -108,12 +108,19 @@ void soundTypeSea()
     webServer.send(200, "text/html", responseHTML);
 }
 
-void soundTypeCity()
+void soundTypeRain()
 {
-    Serial.println("sound city");
-    selectSoundType(SOUND_CITY);
+    Serial.println("sound rain");
+    selectSoundType(SOUND_RAIN);
     webServer.send(200, "text/html", responseHTML);
 }
+
+
+// void handleCss() {
+//     File file = SPIFFS.open("/style.css", "r");
+//     webServer.streamFile(file, "text/css");
+//     file.close();
+// }
 
 void setupCaptivePortal() {
     WiFi.mode(WIFI_AP);
@@ -123,6 +130,8 @@ void setupCaptivePortal() {
     // if DNSServer is started with "*" for domain name, it will reply with
      // provided IP to all DNS request
      dnsServer.start(DNS_PORT, "*", apIP);
+     //add style
+    //  webServer.on("/style.css", handleCss);
     
     webServer.on("/red", redFire);
     webServer.on("/green", greenFire);
@@ -141,8 +150,8 @@ void setupCaptivePortal() {
      webServer.on("/sound_fire", soundTypeFire);
      webServer.on("/sound_forest", soundTypeForest);
      webServer.on("/sound_sea", soundTypeSea);
-     webServer.on("/sound_city", soundTypeCity);
-     
+     webServer.on("/sound_rain", soundTypeRain);
+
      // replay to all requests with same HTML
      webServer.onNotFound([]() {
             webServer.send(200, "text/html", responseHTML);

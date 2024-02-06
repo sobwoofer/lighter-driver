@@ -4,10 +4,11 @@ char* responseHTML = R"=====(
 <!DOCTYPE html>
 <html lang='en'>
     <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" rel="stylesheet" crossorigin="anonymous">       
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" rel="stylesheet" crossorigin="anonymous">        -->
          <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+       
         <style>
             h1.welcome, h3 {
                 color: #fff!important;
@@ -42,12 +43,13 @@ char* responseHTML = R"=====(
             }
             .icons-row .button i {
                 font-size: 77px;
+                display: none;
             }
             .row {
-                height: 162px;
+                height: 134px;
             }
             .icons-row {
-                margin-top: 31px;
+                /* margin-top: 31px; */
             }
 
             .button:hover img {
@@ -74,19 +76,35 @@ char* responseHTML = R"=====(
             .row a {
                 color: white;
             }
-            .color-red a i {
+            .color-red a i, .color-red a button {
                 color:red;
+                border-color:red
             }
-            .color-green a i {
+            .color-green a i, .color-green a button {
                 color:green;
+                border-color:green
             }
-            .color-yellow a i {
+            .color-yellow a i, .color-yellow a button {
                 color: yellow;
+                border-color: yellow;
             }
-            .color-blue a i {
+            .color-blue a i, .color-blue a button {
                 color:blue;
+                border-color: blue;
             }
-            .bi-palette-fill::before { content: "\f4b0"; }
+            .icons-row button:hover {
+                background-color: #333;
+            }
+            .icons-row button {
+                width: 90px;
+                height: 49px;
+                border: 2px solid;
+                border-radius: 4px;
+                background: none;
+                color: #fff;
+                font-size: 21px;
+                border-color: #fff;
+            }
         </style>
         
     </head>
@@ -100,36 +118,111 @@ char* responseHTML = R"=====(
                         <div class="row">
                             <h3>Select color</h3>
                             <div class="icons-row color-row">
-                                <div class="button color-red"><a href='/red'><i class="bi bi-palette-fill"></i>red</a></div>
-                                <div class="button color-green"><a href='/green'><i class="bi bi-palette-fill"></i>green</a></div>
-                                <div class="button color-blue"><a href='/blue'><i class="bi bi-palette-fill"></i>blue</a></div>
-                                <div class="button color-yellow"><a href='/yellow'><i class="bi bi-palette-fill"></i>yellow</a></div>
+                                <div class="button color-red">
+                                    <a href='/red'>
+                                        <i class="bi bi-palette-fill"></i>
+                                        <button class="btn btn-outline-danger" type="button">red</button>
+                                    </a>
+                                </div>
+                                <div class="button color-green">
+                                    <a href='/green'>
+                                        <i class="bi bi-palette-fill"></i>
+                                        <button class="btn btn-outline-success" type="button">green</button>
+                                    </a>
+                                </div>
+                                <div class="button color-blue">
+                                    <a href='/blue'>
+                                        <i class="bi bi-palette-fill"></i>
+                                        <button class="btn btn-outline-primary" type="button">blue</button>
+                                    </a>
+                                </div>
+                                <div class="button color-yellow">
+                                    <a href='/yellow'>
+                                        <i class="bi bi-palette-fill"></i>
+                                        <button class="btn btn-outline-warning" type="button">yellow</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <h3>Select Type</h3>
                             <div class="icons-row color-row">
-                                <div class="button"><a href='/light_fire'><i class="bi bi-fire"></i>fire</a></div>
-                                <div class="button"><a href='/light_ocean'><i class="bi bi-soundwave"></i>ocean</a></div>
-                                <div class="button"><a href='/light_strips'><i class="bi bi-droplet-fill"></i>snake</a></div>
-                                <div class="button"><a href='/light_temperature'><i class="bi bi-rainbow"></i>rainbow</a></div>
+                                <div class="button">
+                                    <a href='/light_fire'>
+                                        <i class="bi bi-fire"></i>
+                                        <button type="button" class="btn btn-outline-light">fire</button>
+                                    </a>
+                                </div>
+                                <div class="button">
+                                    <a href='/light_ocean'>
+                                        <i class="bi bi-soundwave"></i>
+                                        <button type="button" class="btn btn-outline-light">wave</button>
+                                    </a>
+                                </div>
+                                <div class="button">
+                                    <a href='/light_strips'>
+                                        <i class="bi bi-droplet-fill"></i>
+                                        <button type="button" class="btn btn-outline-light">snake</button>
+                                    </a>
+                                </div>
+                                <div class="button">
+                                    <a href='/light_temperature'>
+                                        <i class="bi bi-rainbow"></i>
+                                        <button type="button" class="btn btn-outline-light">rainbow</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <h3>Chose Brightness</h3>
                             <div class="icons-row bright-row">
-                                <div class="button"><a href='/bright_low'><i class="bi bi-brightness-high"></i>low</a></div>
-                                <div class="button"><a href='/bright_medium'><i class="bi bi-brightness-alt-high-fill"></i>medium</a></div> 
-                                <div class="button"><a href='/bright_high'><i class="bi bi-brightness-high-fill"></i>high</a></div>
+                                <div class="button">
+                                    <a href='/bright_low'>
+                                        <i class="bi bi-brightness-high"></i>
+                                        <button type="button" class="btn btn-outline-light">low</button>
+                                    </a>
+                                </div>
+                                <div class="button">
+                                    <a href='/bright_medium'>
+                                        <i class="bi bi-brightness-alt-high-fill"></i>
+                                        <button type="button" class="btn btn-outline-light">medium</button>
+                                    </a>
+                                </div> 
+                                <div class="button">
+                                    <a href='/bright_high'>
+                                        <i class="bi bi-brightness-high-fill"></i>
+                                        <button type="button" class="btn btn-outline-light">high</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <h3>Select Sound</h3>
                             <div class="icons-row color-row">
-                                <div class="button"><a href='/sound_fire'><i class="bi bi-fire"></i>fireplace</a></div>
-                                <div class="button"><a href='/sound_forest'><i class="bi bi-soundwave"></i>forest</a></div>
-                                <div class="button"><a href='/sound_sea'><i class="bi bi-droplet-fill"></i>sea</a></div>
-                                <div class="button"><a href='/sound_city'><i class="bi bi-rainbow"></i>city</a></div>
+                                <div class="button">
+                                    <a href='/sound_fire'>
+                                        <i class="bi bi-fire"></i>
+                                        <button type="button" class="btn btn-outline-light">fireplace</button>
+                                    </a>
+                                </div>
+                                <div class="button">
+                                    <a href='/sound_forest'>
+                                        <i class="bi bi-soundwave"></i>
+                                        <button type="button" class="btn btn-outline-light">forest</button>
+                                    </a>
+                                </div>
+                                <div class="button">
+                                    <a href='/sound_sea'>
+                                        <i class="bi bi-droplet-fill"></i>
+                                        <button type="button" class="btn btn-outline-light">ocean</button>
+                                    </a>
+                                </div>
+                                <div class="button">
+                                    <a href='/sound_rain'>
+                                        <i class="bi bi-rainbow"></i>
+                                        <button type="button" class="btn btn-outline-light">rain</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                       

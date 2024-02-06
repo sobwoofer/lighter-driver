@@ -4,7 +4,7 @@
 #define SOUND_FIRE  0
 #define SOUND_FOREST  1
 #define SOUND_SEA  2
-#define SOUND_CITY  3
+#define SOUND_RAIN  3
 
 int volume = 0;
 int soundType = SOUND_FIRE;
@@ -47,7 +47,7 @@ void playSound()
     case SOUND_SEA:
       myDFPlayer.play(3);
       break;
-    case SOUND_CITY:
+    case SOUND_RAIN:
       myDFPlayer.play(4);
       break;
     

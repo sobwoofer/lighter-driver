@@ -1,0 +1,78 @@
+h1.welcome, h3 {
+    color: #fff!important;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+.portal-bg {
+    background-color: #000;
+}
+.nav {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.icons-row a img {
+    width: 70px;
+}
+
+.icons-row.color-row .button {
+    width: 25%;
+}
+
+.icons-row.bright-row .button {
+    width: 33.33%;
+}
+
+.icons-row .button {
+    
+    display: block;
+    float: left;
+    text-align: center;
+}
+.icons-row .button i {
+    font-size: 77px;
+}
+.row {
+    height: 162px;
+}
+.icons-row {
+    margin-top: 31px;
+}
+
+.button:hover img {
+    opacity: 1;
+    -webkit-animation: flash 1.5s;
+    animation: flash 1.5s;
+}
+@-webkit-keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.row a {
+    color: white;
+}
+.color-red a i {
+    color:red;
+}
+.color-green a i {
+    color:green;
+}
+.color-yellow a i {
+    color: yellow;
+}
+.color-blue a i {
+    color:blue;
+}
+.bi-palette-fill::before { content: "\f4b0"; }

@@ -61,7 +61,7 @@ void selectLightType(int newLightType) {
 //init pins for motors
 void setupLightDriver()
 {  
-
+FastLED.setBrightness( brightnessType);
   // setupColorPallete();
   // setupCylon();
   // setupPacifica();

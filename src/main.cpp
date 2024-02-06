@@ -35,8 +35,8 @@ void loop() {
     lampOff();
   }
 
-Serial.println("loop main switcher: ");
-Serial.print(mainSwitcher);
+// Serial.println("loop main switcher: ");
+// Serial.print(mainSwitcher);
   if (mainSwitcher) {
     lightLoop();
     playerLoop();
