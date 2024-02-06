@@ -47,21 +47,38 @@ void lampOff()
 
 void selectBrightness(int newBrightness) {
   brightnessType = newBrightness;
+  write_param(PARAM_BRIGHTNES_TYPE, String(brightnessType));
+  save_flag = true;
+  save_param();
   FastLED.setBrightness( brightnessType);
 }
 
 void selectColor(int newColor) {
   colorType = newColor;
+  write_param(PARAM_COLOR_TYPE, String(colorType));
+  save_flag = true;
+  save_param();
 }
 
 void selectLightType(int newLightType) {
   lightType = newLightType;
+  write_param(PARAM_LIGHT_TYPE, String(lightType));
+  save_flag = true;
+  save_param();
 }
 
 //init pins for motors
 void setupLightDriver()
 {  
-
+  lightType = param(PARAM_LIGHT_TYPE).toInt();
+  colorType = param(PARAM_COLOR_TYPE).toInt();
+  if (!param(PARAM_BRIGHTNES_TYPE).toInt()) {
+    brightnessType = BRIGHTNESS_MEDIUM;
+  } else {
+    brightnessType = param(PARAM_BRIGHTNES_TYPE).toInt();   
+  }
+  
+  FastLED.setBrightness( brightnessType);
   // setupColorPallete();
   // setupCylon();
   // setupPacifica();
