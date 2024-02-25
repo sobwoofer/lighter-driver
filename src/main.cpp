@@ -1,4 +1,3 @@
-
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <storage.h>
@@ -44,6 +43,7 @@ void loop() {
   if (mainSwitcher) {
     lightLoop();
     playerLoop();
+    
     //  Serial.println("loopLamp");
   }
 }

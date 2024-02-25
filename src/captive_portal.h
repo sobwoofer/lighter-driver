@@ -4,7 +4,7 @@
 #include <html.h>
 
 const byte DNS_PORT = 53;
-const String SSID = "FIREPLACE";
+const String SSID = "LUCERNA";
 IPAddress apIP(172, 217, 28, 1);
 DNSServer dnsServer;
 ESP8266WebServer webServer(80);

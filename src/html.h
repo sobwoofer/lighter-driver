@@ -15,9 +15,11 @@ char* responseHTML = R"=====(
                 text-align: center;
                 font-family: sans-serif;
                 font-weight: 400;
+                margin-bottom: 10px;
             }
             .portal-bg {
                 background-color: #000;
+                margin: 0;
             }
             .nav {
                 max-width: 500px;
@@ -46,7 +48,9 @@ char* responseHTML = R"=====(
                 display: none;
             }
             .row {
-                height: 134px;
+                height: 157px;
+                padding-bottom: 10px;
+                border-bottom: solid 1px #555;
             }
             .icons-row {
                 /* margin-top: 31px; */
@@ -75,35 +79,63 @@ char* responseHTML = R"=====(
             }
             .row a {
                 color: white;
+                display: block;
+                padding: 10px; 
             }
-            .color-red a i, .color-red a button {
-                color:red;
-                border-color:red
-            }
-            .color-green a i, .color-green a button {
-                color:green;
-                border-color:green
-            }
-            .color-yellow a i, .color-yellow a button {
-                color: yellow;
-                border-color: yellow;
-            }
-            .color-blue a i, .color-blue a button {
-                color:blue;
-                border-color: blue;
-            }
-            .icons-row button:hover {
+            .row a:hover {
                 background-color: #333;
+                cursor: pointer;
             }
+            .row a svg {
+                fill: white;
+                width: 62px;
+                min-height: 71px;
+            }
+            .color-red a svg, .color-red a button {
+                fill:red;
+            }
+            .color-green a svg, .color-green a button {
+                fill:green;
+            }
+            .color-yellow a svg, .color-yellow a button {
+                fill: yellow;
+            }
+            .color-blue a svg, .color-blue a button {
+                fill:blue;
+            }
+        
             .icons-row button {
-                width: 90px;
-                height: 49px;
-                border: 2px solid;
-                border-radius: 4px;
+                height: 30px;
+                width: 100%;
+                border: none;
                 background: none;
                 color: #fff;
-                font-size: 21px;
-                border-color: #fff;
+                font-size: 17px;
+            }
+            .bottom {
+                padding: 10px 0px;
+                height: 22px;
+            }
+            .bottom .copyright {
+                width: 50%;
+                float: left;
+            }
+            .bottom .copyright {
+                color: #fff;
+            }
+            .bottom .media {
+                width: 50%;
+                float: right;
+            }
+            .bottom .media a {
+                float: right;
+                color: #fff;
+            }
+            .bottom .media svg {
+                fill: white;
+                width: 21px;
+                float: right;
+                margin-left: 10px;
             }
         </style>
         
@@ -112,115 +144,135 @@ char* responseHTML = R"=====(
         <body class="portal-bg" id="portal">
 
             <div class="nav">
-                <h1 class="welcome">Welcome Fireplace</h1>
+                <!-- <h1 class="welcome">Welcome Fireplace</h1> -->
+                <h1 class="welcome">Налаштуй свою Люцерну</h1>
                 <div class="text-center">
                     <div class="wrapper-custom">
                         <div class="row">
-                            <h3>Select color</h3>
+                            <!-- <h3>Select color</h3> -->
+                            <h3>Вибери колір</h3>
                             <div class="icons-row color-row">
                                 <div class="button color-red">
                                     <a href='/red'>
-                                        <i class="bi bi-palette-fill"></i>
-                                        <button class="btn btn-outline-danger" type="button">red</button>
-                                    </a>
-                                </div>
-                                <div class="button color-green">
-                                    <a href='/green'>
-                                        <i class="bi bi-palette-fill"></i>
-                                        <button class="btn btn-outline-success" type="button">green</button>
-                                    </a>
-                                </div>
-                                <div class="button color-blue">
-                                    <a href='/blue'>
-                                        <i class="bi bi-palette-fill"></i>
-                                        <button class="btn btn-outline-primary" type="button">blue</button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.<path d="M192 512C86 512 0 426 0 320C0 228.8 130.2 57.7 166.6 11.7C172.6 4.2 181.5 0 191.1 0h1.8c9.6 0 18.5 4.2 24.5 11.7C253.8 57.7 384 228.8 384 320c0 106-86 192-192 192zM96 336c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 61.9 50.1 112 112 112c8.8 0 16-7.2 16-16s-7.2-16-16-16c-44.2 0-80-35.8-80-80z"/></svg>
+                                        <!-- <button class="btn btn-outline-danger" type="button">Red</button> -->
+                                        <button class="btn btn-outline-danger" type="button">Червоний</button>
                                     </a>
                                 </div>
                                 <div class="button color-yellow">
                                     <a href='/yellow'>
-                                        <i class="bi bi-palette-fill"></i>
-                                        <button class="btn btn-outline-warning" type="button">yellow</button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.<path d="M192 512C86 512 0 426 0 320C0 228.8 130.2 57.7 166.6 11.7C172.6 4.2 181.5 0 191.1 0h1.8c9.6 0 18.5 4.2 24.5 11.7C253.8 57.7 384 228.8 384 320c0 106-86 192-192 192zM96 336c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 61.9 50.1 112 112 112c8.8 0 16-7.2 16-16s-7.2-16-16-16c-44.2 0-80-35.8-80-80z"/></svg>
+                                        <!-- <button class="btn btn-outline-warning" type="button">Yellow</button> -->
+                                        <button class="btn btn-outline-warning" type="button">Жовтий</button>
+                                    </a>
+                                </div>
+                                <div class="button color-green">
+                                    <a href='/green'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M192 512C86 512 0 426 0 320C0 228.8 130.2 57.7 166.6 11.7C172.6 4.2 181.5 0 191.1 0h1.8c9.6 0 18.5 4.2 24.5 11.7C253.8 57.7 384 228.8 384 320c0 106-86 192-192 192zM96 336c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 61.9 50.1 112 112 112c8.8 0 16-7.2 16-16s-7.2-16-16-16c-44.2 0-80-35.8-80-80z"/></svg>
+                                        <!-- <button class="btn btn-outline-success" type="button">Green</button> -->
+                                        <button class="btn btn-outline-success" type="button">Зелений</button>
+                                    </a>
+                                </div>
+                                <div class="button color-blue">
+                                    <a href='/blue'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M192 512C86 512 0 426 0 320C0 228.8 130.2 57.7 166.6 11.7C172.6 4.2 181.5 0 191.1 0h1.8c9.6 0 18.5 4.2 24.5 11.7C253.8 57.7 384 228.8 384 320c0 106-86 192-192 192zM96 336c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 61.9 50.1 112 112 112c8.8 0 16-7.2 16-16s-7.2-16-16-16c-44.2 0-80-35.8-80-80z"/></svg>
+                                        <!-- <button class="btn btn-outline-primary" type="button">Blue</button> -->
+                                        <button class="btn btn-outline-primary" type="button">Синій</button>
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <h3>Select Type</h3>
+                            <!-- <h3>Select Type</h3> -->
+                            <h3>Тип світла</h3>
                             <div class="icons-row color-row">
                                 <div class="button">
                                     <a href='/light_fire'>
-                                        <i class="bi bi-fire"></i>
-                                        <button type="button" class="btn btn-outline-light">fire</button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z"/></svg>
+                                        <!-- <button type="button" class="btn btn-outline-light">Fire</button> -->
+                                        <button type="button" class="btn btn-outline-light">Вогонь</button>
                                     </a>
                                 </div>
                                 <div class="button">
                                     <a href='/light_ocean'>
-                                        <i class="bi bi-soundwave"></i>
-                                        <button type="button" class="btn btn-outline-light">wave</button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M128 64c0-17.7 14.3-32 32-32H320c17.7 0 32 14.3 32 32V416h96V256c0-17.7 14.3-32 32-32H608c17.7 0 32 14.3 32 32s-14.3 32-32 32H512V448c0 17.7-14.3 32-32 32H320c-17.7 0-32-14.3-32-32V96H192V256c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h96V64z"/></svg>
+                                        <!-- <button type="button" class="btn btn-outline-light">Wave</button> -->
+                                        <button type="button" class="btn btn-outline-light">Хвилі</button>
                                     </a>
                                 </div>
                                 <div class="button">
                                     <a href='/light_strips'>
-                                        <i class="bi bi-droplet-fill"></i>
-                                        <button type="button" class="btn btn-outline-light">snake</button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 96c0-53 43-96 96-96h38.4C439.9 0 480 40.1 480 89.6V176v16V376c0 75.1-60.9 136-136 136s-136-60.9-136-136V296c0-22.1-17.9-40-40-40s-40 17.9-40 40V464c0 26.5-21.5 48-48 48s-48-21.5-48-48V296c0-75.1 60.9-136 136-136s136 60.9 136 136v80c0 22.1 17.9 40 40 40s40-17.9 40-40V192H352c-53 0-96-43-96-96zm144-8a24 24 0 1 0 -48 0 24 24 0 1 0 48 0z"/></svg>
+                                        <!-- <button type="button" class="btn btn-outline-light">Snake</button> -->
+                                        <button type="button" class="btn btn-outline-light">Змійка</button>
                                     </a>
                                 </div>
                                 <div class="button">
                                     <a href='/light_temperature'>
-                                        <i class="bi bi-rainbow"></i>
-                                        <button type="button" class="btn btn-outline-light">rainbow</button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M320 96C178.6 96 64 210.6 64 352v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V352C0 175.3 143.3 32 320 32s320 143.3 320 320v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V352C576 210.6 461.4 96 320 96zm0 192c-35.3 0-64 28.7-64 64v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V352c0-70.7 57.3-128 128-128s128 57.3 128 128v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V352c0-35.3-28.7-64-64-64zM160 352v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V352c0-123.7 100.3-224 224-224s224 100.3 224 224v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V352c0-88.4-71.6-160-160-160s-160 71.6-160 160z"/></svg>
+                                        <!-- <button type="button" class="btn btn-outline-light">Rainbow</button> -->
+                                        <button type="button" class="btn btn-outline-light">Веселка</button>
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <h3>Chose Brightness</h3>
-                            <div class="icons-row bright-row">
-                                <div class="button">
-                                    <a href='/bright_low'>
-                                        <i class="bi bi-brightness-high"></i>
-                                        <button type="button" class="btn btn-outline-light">low</button>
-                                    </a>
-                                </div>
-                                <div class="button">
-                                    <a href='/bright_medium'>
-                                        <i class="bi bi-brightness-alt-high-fill"></i>
-                                        <button type="button" class="btn btn-outline-light">medium</button>
-                                    </a>
-                                </div> 
-                                <div class="button">
-                                    <a href='/bright_high'>
-                                        <i class="bi bi-brightness-high-fill"></i>
-                                        <button type="button" class="btn btn-outline-light">high</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <h3>Select Sound</h3>
+                            <!-- <h3>Select Sound</h3> -->
+                            <h3>Вибрери звуки</h3>
                             <div class="icons-row color-row">
                                 <div class="button">
                                     <a href='/sound_fire'>
-                                        <i class="bi bi-fire"></i>
-                                        <button type="button" class="btn btn-outline-light">fireplace</button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M97.2 96.2c10.4-10.7 16-17.1 16-21.9 0-2.8-1.9-5.5-3.8-7.4A14.8 14.8 0 0 0 101 64.1c-8.5 0-20.9 8.8-35.8 25.7C23.7 137 2.5 182.8 3.4 250.3s17.5 117 54.1 161.9C76.2 435.9 90.6 448 100.9 448a13.6 13.6 0 0 0 8.4-3.8c1.9-2.8 3.8-5.6 3.8-8.4 0-5.6-3.9-12.2-13.2-20.6-44.5-42.3-67.3-97-67.5-165C32.3 188.8 54 137.8 97.2 96.2zM239.5 420.1c.6 .4 .9 .6 .9 .6zm93.8 .6 .2-.1C333.2 420.6 333.2 420.7 333.3 420.6zm3.1-158.2c-16.2-4.2 50.4-82.9-68.1-177.2 0 0 15.5 49.4-62.8 159.6-74.3 104.4 23.5 168.7 34 175.2-6.7-4.4-47.4-35.7 9.6-128.6 11-18.3 25.5-34.9 43.5-72.2 0 0 15.9 22.5 7.6 71.1C287.7 364 354 342.9 355 343.9c22.8 26.8-17.7 73.5-21.6 76.6 5.5-3.7 117.7-78 33-188.1C360.4 238.4 352.6 266.6 336.4 262.4zM510.9 89.7C496 72.8 483.5 64 475 64a14.8 14.8 0 0 0 -8.4 2.8c-1.9 1.9-3.8 4.7-3.8 7.4 0 4.8 5.6 11.3 16 21.9 43.2 41.6 65 92.6 64.8 154.1-.2 68-23 122.6-67.5 165-9.3 8.4-13.2 14.9-13.2 20.6 0 2.8 1.9 5.6 3.8 8.4A13.6 13.6 0 0 0 475.1 448c10.3 0 24.7-12.1 43.5-35.8 36.6-44.9 53.1-94.4 54.1-161.9S552.3 137 510.9 89.7z"/></svg>
+                                        <!-- <button type="button" class="btn btn-outline-light">Fireplace</button> -->
+                                        <button type="button" class="btn btn-outline-light">Багаття</button>
                                     </a>
                                 </div>
                                 <div class="button">
                                     <a href='/sound_forest'>
-                                        <i class="bi bi-soundwave"></i>
-                                        <button type="button" class="btn btn-outline-light">forest</button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M160.8 96.5c14 17 31 30.9 49.5 42.2c25.9 15.8 53.7 25.9 77.7 31.6V138.8C265.8 108.5 250 71.5 248.6 28c-.4-11.3-7.5-21.5-18.4-24.4c-7.6-2-15.8-.2-21 5.8c-13.3 15.4-32.7 44.6-48.4 87.2zM320 144v30.6l0 0v1.3l0 0 0 32.1c-60.8-5.1-185-43.8-219.3-157.2C97.4 40 87.9 32 76.6 32c-7.9 0-15.3 3.9-18.8 11C46.8 65.9 32 112.1 32 176c0 116.9 80.1 180.5 118.4 202.8L11.8 416.6C6.7 418 2.6 421.8 .9 426.8s-.8 10.6 2.3 14.8C21.7 466.2 77.3 512 160 512c3.6 0 7.2-1.2 10-3.5L245.6 448H320c88.4 0 160-71.6 160-160V128l29.9-44.9c1.3-2 2.1-4.4 2.1-6.8c0-6.8-5.5-12.3-12.3-12.3H400c-44.2 0-80 35.8-80 80zm80-16a16 16 0 1 1 0 32 16 16 0 1 1 0-32z"/></svg>
+                                        <!-- <button type="button" class="btn btn-outline-light">Forest</button> -->
+                                        <button type="button" class="btn btn-outline-light">Птахи</button>
                                     </a>
                                 </div>
                                 <div class="button">
                                     <a href='/sound_sea'>
-                                        <i class="bi bi-droplet-fill"></i>
-                                        <button type="button" class="btn btn-outline-light">ocean</button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M269.5 69.9c11.1-7.9 25.9-7.9 37 0C329 85.4 356.5 96 384 96c26.9 0 55.4-10.8 77.4-26.1l0 0c11.9-8.5 28.1-7.8 39.2 1.7c14.4 11.9 32.5 21 50.6 25.2c17.2 4 27.9 21.2 23.9 38.4s-21.2 27.9-38.4 23.9c-24.5-5.7-44.9-16.5-58.2-25C449.5 149.7 417 160 384 160c-31.9 0-60.6-9.9-80.4-18.9c-5.8-2.7-11.1-5.3-15.6-7.7c-4.5 2.4-9.7 5.1-15.6 7.7c-19.8 9-48.5 18.9-80.4 18.9c-33 0-65.5-10.3-94.5-25.8c-13.4 8.4-33.7 19.3-58.2 25c-17.2 4-34.4-6.7-38.4-23.9s6.7-34.4 23.9-38.4C42.8 92.6 61 83.5 75.3 71.6c11.1-9.5 27.3-10.1 39.2-1.7l0 0C136.7 85.2 165.1 96 192 96c27.5 0 55-10.6 77.5-26.1zm37 288C329 373.4 356.5 384 384 384c26.9 0 55.4-10.8 77.4-26.1l0 0c11.9-8.5 28.1-7.8 39.2 1.7c14.4 11.9 32.5 21 50.6 25.2c17.2 4 27.9 21.2 23.9 38.4s-21.2 27.9-38.4 23.9c-24.5-5.7-44.9-16.5-58.2-25C449.5 437.7 417 448 384 448c-31.9 0-60.6-9.9-80.4-18.9c-5.8-2.7-11.1-5.3-15.6-7.7c-4.5 2.4-9.7 5.1-15.6 7.7c-19.8 9-48.5 18.9-80.4 18.9c-33 0-65.5-10.3-94.5-25.8c-13.4 8.4-33.7 19.3-58.2 25c-17.2 4-34.4-6.7-38.4-23.9s6.7-34.4 23.9-38.4c18.1-4.2 36.2-13.3 50.6-25.2c11.1-9.4 27.3-10.1 39.2-1.7l0 0C136.7 373.2 165.1 384 192 384c27.5 0 55-10.6 77.5-26.1c11.1-7.9 25.9-7.9 37 0zm0-144C329 229.4 356.5 240 384 240c26.9 0 55.4-10.8 77.4-26.1l0 0c11.9-8.5 28.1-7.8 39.2 1.7c14.4 11.9 32.5 21 50.6 25.2c17.2 4 27.9 21.2 23.9 38.4s-21.2 27.9-38.4 23.9c-24.5-5.7-44.9-16.5-58.2-25C449.5 293.7 417 304 384 304c-31.9 0-60.6-9.9-80.4-18.9c-5.8-2.7-11.1-5.3-15.6-7.7c-4.5 2.4-9.7 5.1-15.6 7.7c-19.8 9-48.5 18.9-80.4 18.9c-33 0-65.5-10.3-94.5-25.8c-13.4 8.4-33.7 19.3-58.2 25c-17.2 4-34.4-6.7-38.4-23.9s6.7-34.4 23.9-38.4c18.1-4.2 36.2-13.3 50.6-25.2c11.1-9.5 27.3-10.1 39.2-1.7l0 0C136.7 229.2 165.1 240 192 240c27.5 0 55-10.6 77.5-26.1c11.1-7.9 25.9-7.9 37 0z"/></svg>
+                                        <!-- <button type="button" class="btn btn-outline-light">Ocean</button> -->
+                                        <button type="button" class="btn btn-outline-light">Океан</button>
                                     </a>
                                 </div>
                                 <div class="button">
                                     <a href='/sound_rain'>
-                                        <i class="bi bi-rainbow"></i>
-                                        <button type="button" class="btn btn-outline-light">rain</button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224 0c38.6 0 71.9 22.8 87.2 55.7C325.7 41.1 345.8 32 368 32c38.7 0 71 27.5 78.4 64H448c35.3 0 64 28.7 64 64s-28.7 64-64 64H128c-35.3 0-64-28.7-64-64s28.7-64 64-64c0-53 43-96 96-96zM140.6 292.3l-48 80c-6.8 11.4-21.6 15-32.9 8.2s-15.1-21.6-8.2-32.9l48-80c6.8-11.4 21.6-15.1 32.9-8.2s15.1 21.6 8.2 32.9zm327.8-32.9c11.4 6.8 15 21.6 8.2 32.9l-48 80c-6.8 11.4-21.6 15-32.9 8.2s-15-21.6-8.2-32.9l48-80c6.8-11.4 21.6-15.1 32.9-8.2zM252.6 292.3l-48 80c-6.8 11.4-21.6 15-32.9 8.2s-15.1-21.6-8.2-32.9l48-80c6.8-11.4 21.6-15.1 32.9-8.2s15.1 21.6 8.2 32.9zm103.8-32.9c11.4 6.8 15 21.6 8.2 32.9l-48 80c-6.8 11.4-21.6 15-32.9 8.2s-15.1-21.6-8.2-32.9l48-80c6.8-11.4 21.6-15.1 32.9-8.2zM306.5 421.9C329 437.4 356.5 448 384 448c26.9 0 55.4-10.8 77.4-26.1l0 0c11.9-8.5 28.1-7.8 39.2 1.7c14.4 11.9 32.5 21 50.6 25.2c17.2 4 27.9 21.2 23.9 38.4s-21.2 27.9-38.4 23.9c-24.5-5.7-44.9-16.5-58.2-25C449.5 501.7 417 512 384 512c-31.9 0-60.6-9.9-80.4-18.9c-5.8-2.7-11.1-5.3-15.6-7.7c-4.5 2.4-9.7 5.1-15.6 7.7c-19.8 9-48.5 18.9-80.4 18.9c-33 0-65.5-10.3-94.5-25.8c-13.4 8.4-33.7 19.3-58.2 25c-17.2 4-34.4-6.7-38.4-23.9s6.7-34.4 23.9-38.4c18.1-4.2 36.2-13.3 50.6-25.2c11.1-9.4 27.3-10.1 39.2-1.7l0 0C136.7 437.2 165.1 448 192 448c27.5 0 55-10.6 77.5-26.1c11.1-7.9 25.9-7.9 37 0z"/></svg>
+                                        <!-- <button type="button" class="btn btn-outline-light">Rain</button> -->
+                                        <button type="button" class="btn btn-outline-light">Дощ</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- <h3>Chose Brightness</h3> -->
+                            <h3>Інтенсивність світла</h3>
+                            <div class="icons-row bright-row">
+                                <div class="button">
+                                    <a href='/bright_low'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M375.7 19.7c-1.5-8-6.9-14.7-14.4-17.8s-16.1-2.2-22.8 2.4L256 61.1 173.5 4.2c-6.7-4.6-15.3-5.5-22.8-2.4s-12.9 9.8-14.4 17.8l-18.1 98.5L19.7 136.3c-8 1.5-14.7 6.9-17.8 14.4s-2.2 16.1 2.4 22.8L61.1 256 4.2 338.5c-4.6 6.7-5.5 15.3-2.4 22.8s9.8 13 17.8 14.4l98.5 18.1 18.1 98.5c1.5 8 6.9 14.7 14.4 17.8s16.1 2.2 22.8-2.4L256 450.9l82.5 56.9c6.7 4.6 15.3 5.5 22.8 2.4s12.9-9.8 14.4-17.8l18.1-98.5 98.5-18.1c8-1.5 14.7-6.9 17.8-14.4s2.2-16.1-2.4-22.8L450.9 256l56.9-82.5c4.6-6.7 5.5-15.3 2.4-22.8s-9.8-12.9-17.8-14.4l-98.5-18.1L375.7 19.7zM269.6 110l65.6-45.2 14.4 78.3c1.8 9.8 9.5 17.5 19.3 19.3l78.3 14.4L402 242.4c-5.7 8.2-5.7 19 0 27.2l45.2 65.6-78.3 14.4c-9.8 1.8-17.5 9.5-19.3 19.3l-14.4 78.3L269.6 402c-8.2-5.7-19-5.7-27.2 0l-65.6 45.2-14.4-78.3c-1.8-9.8-9.5-17.5-19.3-19.3L64.8 335.2 110 269.6c5.7-8.2 5.7-19 0-27.2L64.8 176.8l78.3-14.4c9.8-1.8 17.5-9.5 19.3-19.3l14.4-78.3L242.4 110c8.2 5.7 19 5.7 27.2 0zM256 368a112 112 0 1 0 0-224 112 112 0 1 0 0 224zM192 256a64 64 0 1 1 128 0 64 64 0 1 1 -128 0z"/></svg>
+                                        <!-- <button type="button" class="btn btn-outline-light">Low</button> -->
+                                        <button type="button" class="btn btn-outline-light">Мала</button>
+                                    </a>
+                                </div>
+                                <div class="button">
+                                    <a href='/bright_medium'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M375.7 19.7c-1.5-8-6.9-14.7-14.4-17.8s-16.1-2.2-22.8 2.4L256 61.1 173.5 4.2c-6.7-4.6-15.3-5.5-22.8-2.4s-12.9 9.8-14.4 17.8l-18.1 98.5L19.7 136.3c-8 1.5-14.7 6.9-17.8 14.4s-2.2 16.1 2.4 22.8L61.1 256 4.2 338.5c-4.6 6.7-5.5 15.3-2.4 22.8s9.8 13 17.8 14.4l98.5 18.1 18.1 98.5c1.5 8 6.9 14.7 14.4 17.8s16.1 2.2 22.8-2.4L256 450.9l82.5 56.9c6.7 4.6 15.3 5.5 22.8 2.4s12.9-9.8 14.4-17.8l18.1-98.5 98.5-18.1c8-1.5 14.7-6.9 17.8-14.4s2.2-16.1-2.4-22.8L450.9 256l56.9-82.5c4.6-6.7 5.5-15.3 2.4-22.8s-9.8-12.9-17.8-14.4l-98.5-18.1L375.7 19.7zM269.6 110l65.6-45.2 14.4 78.3c1.8 9.8 9.5 17.5 19.3 19.3l78.3 14.4L402 242.4c-5.7 8.2-5.7 19 0 27.2l45.2 65.6-78.3 14.4c-9.8 1.8-17.5 9.5-19.3 19.3l-14.4 78.3L269.6 402c-8.2-5.7-19-5.7-27.2 0l-65.6 45.2-14.4-78.3c-1.8-9.8-9.5-17.5-19.3-19.3L64.8 335.2 110 269.6c5.7-8.2 5.7-19 0-27.2L64.8 176.8l78.3-14.4c9.8-1.8 17.5-9.5 19.3-19.3l14.4-78.3L242.4 110c8.2 5.7 19 5.7 27.2 0zM256 368a112 112 0 1 0 0-224 112 112 0 1 0 0 224zM192 256a64 64 0 1 1 128 0 64 64 0 1 1 -128 0z"/></svg>
+                                        <!-- <button type="button" class="btn btn-outline-light">Medium</button> -->
+                                        <button type="button" class="btn btn-outline-light">Середя</button>
+                                    </a>
+                                </div> 
+                                <div class="button">
+                                    <a href='/bright_high'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></svg>
+                                        <!-- <button type="button" class="btn btn-outline-light">High</button> -->
+                                        <button type="button" class="btn btn-outline-light">Потужна</button>
                                     </a>
                                 </div>
                             </div>
@@ -228,7 +280,20 @@ char* responseHTML = R"=====(
                       
                     </div>
                 </div>
-        
+
+
+                <div class="bottom">
+                    <div class="copyright">
+                        <span>© Lucerna Зроблено в Україні</span>
+                    </div>
+                    <div class="media">
+                        <a href="https://www.instagram.com/lucerna.com.ua">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                            Instagram
+                        </a>
+                    </div>
+                
+                </div>
             </div>
     </body>
 </html>

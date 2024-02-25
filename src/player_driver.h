@@ -5,9 +5,15 @@
 #define SOUND_FOREST  1
 #define SOUND_SEA  2
 #define SOUND_RAIN  3
+#define SOUND_CRICKETS  4
+#define SOUND_JUNGLE  5
+#define SOUND_CHIKENS  6
 
 int volume = 0;
 int soundType = SOUND_FIRE;
+
+unsigned long previousMillisReplay = 0;        // Зберігає останній час, коли ми оновили таймер
+const long intervalReplay = 1200000; // Інтервал для перезапуску TODO 20 min
 
 SoftwareSerial mySoftwareSerial(PIN_MP3_RX, PIN_MP3_TX); // RX, TX
 DFRobotDFPlayerMini myDFPlayer;
@@ -41,7 +47,7 @@ void playSound()
     switch (soundType)
     {
     case SOUND_FIRE:
-      myDFPlayer.play(1);
+      myDFPlayer.play(1);//TODO 1,2,3
       myDFPlayer.loop(1);
       break;
     case SOUND_FOREST:
@@ -61,6 +67,7 @@ void playSound()
      myDFPlayer.play(1);
      myDFPlayer.loop(1);
     }
+    myDFPlayer.enableLoop();
     
 }
 
@@ -77,8 +84,23 @@ void stopSound()
     myDFPlayer.stop();
 }
 
+void playOneInWhile()
+{
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillisReplay >= intervalReplay) {
+    // Збережіть поточний час
+    previousMillisReplay = currentMillis;
+
+    // play again
+    playSound();
+  }
+   
+}
+
 void playerLoop()
 {
+  playOneInWhile();
       if (volume != getVolume()) {
         volume = getVolume();
         myDFPlayer.volume(volume);
