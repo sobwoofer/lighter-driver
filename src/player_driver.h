@@ -18,23 +18,6 @@ const long intervalReplay = 1200000; // Інтервал для перезапу
 SoftwareSerial mySoftwareSerial(PIN_MP3_RX, PIN_MP3_TX); // RX, TX
 DFRobotDFPlayerMini myDFPlayer;
 
-void setupPlayer() 
-{
-  soundType = param(PARAM_SOUND_TYPE).toInt();
-  // Serial.println("Sound type: ");
-  // Serial.println(soundType);
-  mySoftwareSerial.begin(9600);
-  Serial.begin(115200);
-  // Start communication with DFPlayer Mini
-  if (myDFPlayer.begin(mySoftwareSerial)) {
-   Serial.println("Player OK");
-    
-  } else {
-    Serial.println("Connecting to DFPlayer Mini failed!");
-    ESP.restart();
-  }
-}
-
 int getVolume()
 {
     return analogRead(VOLUME)/34;
@@ -69,6 +52,25 @@ void playSound()
     }
     myDFPlayer.enableLoop();
     
+}
+
+void setupPlayer() 
+{
+  soundType = param(PARAM_SOUND_TYPE).toInt();
+  // Serial.println("Sound type: ");
+  // Serial.println(soundType);
+  mySoftwareSerial.begin(9600);
+  Serial.begin(115200);
+  // Start communication with DFPlayer Mini
+  if (myDFPlayer.begin(mySoftwareSerial)) {
+   Serial.println("Player OK");
+    
+  } else {
+    Serial.println("Connecting to DFPlayer Mini failed!");
+    ESP.restart();
+  }
+
+  playSound();
 }
 
 void selectSoundType(int newSoundType) {
