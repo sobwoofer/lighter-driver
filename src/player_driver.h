@@ -1,13 +1,15 @@
 #include "SoftwareSerial.h"
 #include "DFRobotDFPlayerMini.h"
 
-#define SOUND_FIRE  0
-#define SOUND_FOREST  1
-#define SOUND_SEA  2
-#define SOUND_RAIN  3
-#define SOUND_CRICKETS  4
-#define SOUND_JUNGLE  5
-#define SOUND_CHIKENS  6
+#define SOUND_FIRE  1
+#define SOUND_BIRDS  2
+#define SOUND_SEA  3
+#define SOUND_RAIN  4
+#define SOUND_CRICKETS  5
+#define SOUND_JUNGLE  6
+#define SOUND_CHIKENS  7
+#define SOUND_TRAIN  8
+#define SOUND_FROGS  9
 
 int volume = 0;
 int soundType = SOUND_FIRE;
@@ -27,30 +29,10 @@ void playSound()
 {
     myDFPlayer.stop();
     myDFPlayer.volume(getVolume());
-    switch (soundType)
-    {
-    case SOUND_FIRE:
-      myDFPlayer.play(1);//TODO 1,2,3
-      myDFPlayer.loop(1);
-      break;
-    case SOUND_FOREST:
-      myDFPlayer.play(2);
-      myDFPlayer.loop(2);
-      break;
-    case SOUND_SEA:
-      myDFPlayer.play(3);
-      myDFPlayer.loop(3);
-      break;
-    case SOUND_RAIN:
-      myDFPlayer.play(4);
-      myDFPlayer.loop(4);
-      break;
-    
-    default:
-     myDFPlayer.play(1);
-     myDFPlayer.loop(1);
-    }
     myDFPlayer.enableLoop();
+
+    myDFPlayer.play(soundType);
+    myDFPlayer.loop(soundType);
     
 }
 

@@ -59,6 +59,27 @@ void brightLow()
     webServer.send(200, "text/html", responseHTML);
 }
 
+void lightSpeedLow()
+{
+    Serial.println("light speed low");
+    selectLightSpeed(LIGHT_SPEED_LOW);
+    webServer.send(200, "text/html", responseHTML);
+}
+
+void lightSpeedMedium()
+{
+    Serial.println("light speed medium");
+    selectLightSpeed(LIGHT_SPEED_MEDIUM);
+    webServer.send(200, "text/html", responseHTML);
+}
+
+void lightSpeedHigh()
+{
+    Serial.println("light speed high");
+    selectLightSpeed(LIGHT_SPEED_HIGH);
+    webServer.send(200, "text/html", responseHTML);
+}
+
 void lightTypeFire()
 {
     Serial.println("type fire");
@@ -94,10 +115,10 @@ void soundTypeFire()
     webServer.send(200, "text/html", responseHTML);
 }
 
-void soundTypeForest()
+void soundTypeBirds()
 {
-    Serial.println("sound forest");
-    selectSoundType(SOUND_FOREST);
+    Serial.println("sound birds");
+    selectSoundType(SOUND_BIRDS);
     webServer.send(200, "text/html", responseHTML);
 }
 
@@ -112,6 +133,41 @@ void soundTypeRain()
 {
     Serial.println("sound rain");
     selectSoundType(SOUND_RAIN);
+    webServer.send(200, "text/html", responseHTML);
+}
+
+void soundTypeCrickets()
+{
+    Serial.println("sound crickets");
+    selectSoundType(SOUND_CRICKETS);
+    webServer.send(200, "text/html", responseHTML);
+}
+
+void soundTypeJungle()
+{
+    Serial.println("sound jungle");
+    selectSoundType(SOUND_JUNGLE);
+    webServer.send(200, "text/html", responseHTML);
+}
+
+void soundTypeChikens()
+{
+    Serial.println("sound chikens");
+    selectSoundType(SOUND_CHIKENS);
+    webServer.send(200, "text/html", responseHTML);
+}
+
+void soundTypeTrain()
+{
+    Serial.println("sound train");
+    selectSoundType(SOUND_TRAIN);
+    webServer.send(200, "text/html", responseHTML);
+}
+
+void soundTypeFrogs()
+{
+    Serial.println("sound frogs");
+    selectSoundType(SOUND_FROGS);
     webServer.send(200, "text/html", responseHTML);
 }
 
@@ -142,15 +198,25 @@ void setupCaptivePortal() {
      webServer.on("/bright_medium", brightMedium);
      webServer.on("/bright_high", brightHigh);
 
+    webServer.on("/speed_low", lightSpeedLow);
+     webServer.on("/speed_medium", lightSpeedMedium);
+     webServer.on("/speed_high", lightSpeedHigh);
+
      webServer.on("/light_fire", lightTypeFire);
      webServer.on("/light_ocean", lightTypeOcean);
      webServer.on("/light_strips", lightTypeStrips);
      webServer.on("/light_temperature", lightTypeTemperature);
 
      webServer.on("/sound_fire", soundTypeFire);
-     webServer.on("/sound_forest", soundTypeForest);
+     webServer.on("/sound_birds", soundTypeBirds);
      webServer.on("/sound_sea", soundTypeSea);
      webServer.on("/sound_rain", soundTypeRain);
+
+     webServer.on("/sound_crickets", soundTypeCrickets);
+     webServer.on("/sound_jungle", soundTypeJungle);
+     webServer.on("/sound_chikens", soundTypeChikens);
+     webServer.on("/sound_train", soundTypeTrain);
+     webServer.on("/sound_frogs", soundTypeFrogs);
 
      // replay to all requests with same HTML
      webServer.onNotFound([]() {

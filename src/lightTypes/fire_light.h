@@ -65,7 +65,23 @@ void fireLightLoop()
   }
 
   FastLED.show(); // display this frame
-  FastLED.delay(1000 / FRAMES_PER_SECOND);
+  switch (lightSpeed)
+  {
+  case LIGHT_SPEED_LOW:
+    FastLED.delay(1000 / 10);
+    break;
+  case LIGHT_SPEED_MEDIUM:
+    FastLED.delay(1000 / 20);
+    break;
+  case LIGHT_SPEED_HIGH:
+    FastLED.delay(1000 / 50);
+    break;
+  
+  default:
+   FastLED.delay(1000 / 20);
+    break;
+  }
+  
 
 }
 

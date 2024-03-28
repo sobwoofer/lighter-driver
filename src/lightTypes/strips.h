@@ -58,5 +58,21 @@ void stripsLoop() {
 
   // Показуємо оновлені світлодіоди
   FastLED.show();
-  delay(100); // Керуємо швидкістю анімації
+
+  switch (lightSpeed)
+  {
+  case LIGHT_SPEED_LOW:
+    FastLED.delay(300);
+    break;
+  case LIGHT_SPEED_MEDIUM:
+    FastLED.delay(100);
+    break;
+  case LIGHT_SPEED_HIGH:
+    FastLED.delay(40);
+    break;
+  
+  default:
+    break;
+  }
+  // delay(100); // Керуємо швидкістю анімації
 }

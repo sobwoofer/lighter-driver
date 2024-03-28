@@ -7,6 +7,7 @@ void ptintdeb(String s)
 #define PARAM_SOUND_TYPE "sound_type"
 #define PARAM_LIGHT_TYPE "light_type"
 #define PARAM_BRIGHTNES_TYPE "brightnes_type"
+#define PARAM_LIGHT_SPEED "light_speed"
 #define PARAM_COLOR_TYPE "color_type"
 
 String json_config;
