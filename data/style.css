@@ -3,9 +3,12 @@ h1.welcome, h3 {
     text-align: center;
     font-family: sans-serif;
     font-weight: 400;
+    margin-bottom: 10px;
+    font-size: 29px;
 }
 .portal-bg {
     background-color: #000;
+    margin: 0;
 }
 .nav {
     max-width: 500px;
@@ -19,7 +22,7 @@ h1.welcome, h3 {
     width: 25%;
 }
 
-.icons-row.bright-row .button {
+.icons-row.bright-row .button, .icons-row.speed-row .button {
     width: 33.33%;
 }
 
@@ -31,12 +34,13 @@ h1.welcome, h3 {
 }
 .icons-row .button i {
     font-size: 77px;
+    display: none;
 }
 .row {
-    height: 162px;
-}
-.icons-row {
-    margin-top: 31px;
+    float: left;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #555;
 }
 
 .button:hover img {
@@ -60,19 +64,86 @@ h1.welcome, h3 {
         opacity: 1;
     }
 }
-.row a {
+.row .item {
     color: white;
+    display: block;
+    padding: 10px 4px;
 }
-.color-red a i {
-    color:red;
+.row .item:hover {
+    background-color: #333;
+    cursor: pointer;
 }
-.color-green a i {
-    color:green;
+.row .item svg {
+    fill: white;
+    height: 62px;
+    max-width: 62px;
 }
-.color-yellow a i {
-    color: yellow;
+.row .item .round {
+    height: 62px;
+    max-width: 62px;
+    display: block;
+    margin: 0 auto;
+    background-color: red;
+    border-radius: 38px 20px;
 }
-.color-blue a i {
-    color:blue;
+.color-red .item .round {
+    background-color: red;
 }
-.bi-palette-fill::before { content: "\f4b0"; }
+.color-green .item .round {
+    background-color: green;
+}
+.color-yellow .item .round {
+    background-color: yellow;
+}
+.color-blue .item .round {
+    background-color: blue;
+}
+
+.icons-row button {
+    height: 30px;
+    width: 100%;
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 17px;
+    text-align: center;
+    padding: 0;
+}
+.bottom {
+    padding: 10px 0px;
+    height: 22px;
+}
+.bottom .copyright {
+    width: 50%;
+    float: left;
+    padding: 10px 0;
+}
+.bottom .copyright {
+    color: #fff;
+}
+.bottom .media {
+    width: 50%;
+    float: right;
+    padding: 10px 0;
+}
+.bottom .media span {
+    float: right;
+    color: #fff;
+}
+.bottom .media svg {
+    fill: white;
+    width: 21px;
+    float: right;
+    margin-left: 10px;
+}
+
+.language-switch label {
+    color: #fff;
+    font-family: sans-serif;
+}
+.language-switch {
+    text-align: center;
+    padding: 0 5px;
+}
+
+

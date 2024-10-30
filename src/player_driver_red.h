@@ -1,5 +1,6 @@
 #include "SoftwareSerial.h"
-#include "DFRobotDFPlayerMini.h"
+#include "DFRobotDFPlayerMini.h" //playerV1
+
 
 #define SOUND_FIRE  1
 #define SOUND_BIRDS  2
@@ -18,7 +19,7 @@ unsigned long previousMillisReplay = 0;        // Зберігає останн�
 const long intervalReplay = 1200000; // Інтервал для перезапуску TODO 20 min
 
 SoftwareSerial mySoftwareSerial(PIN_MP3_RX, PIN_MP3_TX); // RX, TX
-DFRobotDFPlayerMini myDFPlayer;
+DFRobotDFPlayerMini myDFPlayer; // playerV1
 
 int getVolume()
 {
@@ -27,12 +28,14 @@ int getVolume()
 
 void playSound()
 {
+    // playerV1
     myDFPlayer.stop();
     myDFPlayer.volume(getVolume());
     myDFPlayer.enableLoop();
 
     myDFPlayer.play(soundType);
     myDFPlayer.loop(soundType);
+
     
 }
 
@@ -43,7 +46,8 @@ void setupPlayer()
   // Serial.println(soundType);
   mySoftwareSerial.begin(9600);
   Serial.begin(115200);
-  // Start communication with DFPlayer Mini
+
+  // Start communication with DFPlayer Mini playerV1
   if (myDFPlayer.begin(mySoftwareSerial)) {
    Serial.println("Player OK");
     
@@ -51,6 +55,7 @@ void setupPlayer()
     Serial.println("Connecting to DFPlayer Mini failed!");
     ESP.restart();
   }
+
 
   playSound();
 }
@@ -87,6 +92,6 @@ void playerLoop()
   playOneInWhile();
       if (volume != getVolume()) {
         volume = getVolume();
-        myDFPlayer.volume(volume);
+        myDFPlayer.volume(volume); // playerV1
     }
 }

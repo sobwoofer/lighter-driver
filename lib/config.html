@@ -1,151 +1,36 @@
-
 <!DOCTYPE html>
 <html lang='en'>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-       
-        <style>
-            h1.welcome, h3 {
-                color: #fff!important;
-                text-align: center;
-                font-family: sans-serif;
-                font-weight: 400;
-                margin-bottom: 10px;
-                font-size: 29px;
+        <title>LUCERNA</title>
+        <link rel="stylesheet" href="/style.css">
+        <script>
+            // Завантажуємо JSON з перекладами
+            function loadTranslations(language) {
+                fetch('/lang.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Застосування перекладів
+                        document.getElementById('title').innerText = data[language].title;
+                        document.getElementById('select_color').innerText = data[language].select_color;
+                        document.getElementById('red').innerText = data[language].red;
+                        document.getElementById('yellow').innerText = data[language].yellow;
+                        document.getElementById('green').innerText = data[language].green;
+                        document.getElementById('blue').innerText = data[language].blue;
+                    });
             }
-            .portal-bg {
-                background-color: #000;
-                margin: 0;
+    
+            // Отримуємо мову браузера користувача
+            var userLang = navigator.language || navigator.userLanguage;
+            var lang = userLang.startsWith('uk') ? 'uk' : 'en'; // Вибираємо українську або англійську
+    
+            // Завантажуємо переклади для потрібної мови
+            window.onload = function() {
+                loadTranslations(lang);
             }
-            .nav {
-                max-width: 500px;
-                margin: 0 auto;
-            }
-            .icons-row a img {
-                width: 70px;
-            }
-
-            .icons-row.color-row .button {
-                width: 25%;
-            }
-
-            .icons-row.bright-row .button, .icons-row.speed-row .button {
-                width: 33.33%;
-            }
-
-            .icons-row .button {
-                
-                display: block;
-                float: left;
-                text-align: center;
-            }
-            .icons-row .button i {
-                font-size: 77px;
-                display: none;
-            }
-            .row {
-                float: left;
-                width: 100%;
-                padding-bottom: 10px;
-                border-bottom: solid 1px #555;
-            }
-            .icons-row {
-                /* margin-top: 31px; */
-            }
-
-            .button:hover img {
-                opacity: 1;
-                -webkit-animation: flash 1.5s;
-                animation: flash 1.5s;
-            }
-            @-webkit-keyframes flash {
-                0% {
-                    opacity: .4;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-            @keyframes flash {
-                0% {
-                    opacity: .4;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-            .row a {
-                color: white;
-                display: block;
-                padding: 10px 4px;
-            }
-            .row a:hover {
-                background-color: #333;
-                cursor: pointer;
-            }
-            .row a svg {
-                fill: white;
-                height: 62px;
-                max-width: 62px;
-            }
-            .row a .round {
-                height: 62px;
-                max-width: 62px;
-                display: block;
-                margin: 0 auto;
-                background-color: red;
-                border-radius: 38px 20px;
-            }
-            .color-red a .round {
-                background-color: red;
-            }
-            .color-green a .round {
-                background-color: green;
-            }
-            .color-yellow a .round {
-                background-color: yellow;
-            }
-            .color-blue a .round {
-                background-color: blue;
-            }
-        
-            .icons-row button {
-                height: 30px;
-                width: 100%;
-                border: none;
-                background: none;
-                color: #fff;
-                font-size: 17px;
-                text-align: center;
-                padding: 0;
-            }
-            .bottom {
-                padding: 10px 0px;
-                height: 22px;
-            }
-            .bottom .copyright {
-                width: 50%;
-                float: left;
-            }
-            .bottom .copyright {
-                color: #fff;
-            }
-            .bottom .media {
-                width: 50%;
-                float: right;
-            }
-            .bottom .media span {
-                float: right;
-                color: #fff;
-            }
-            .bottom .media svg {
-                fill: white;
-                width: 21px;
-                float: right;
-                margin-left: 10px;
-            }
-        </style>
+        </script>
+    
         
     </head>
     <body>
@@ -153,39 +38,35 @@
 
             <div class="nav">
                 <!-- <h1 class="welcome">PowerKIT x LUCERNA</h1> -->
-                <h1 class="welcome">Налаштування LUCERNA</h1>
+                <h1 id="title" class="welcome">Налаштування LUCERNA</h1>
                 <div class="text-center">
                     <div class="wrapper-custom">
                         <div class="row">
                             <!-- <h3>Select color</h3> -->
-                            <h3>Обери колір</h3>
+                            <h3 id="select_color">Обери колір</h3>
                             <div class="icons-row color-row">
                                 <div class="button color-red">
                                     <a href='/red'>
                                         <span class="round"></span>
-                                        <!-- <button class="btn btn-outline-danger" type="button">Red</button> -->
-                                        <button class="btn btn-outline-danger" type="button">Червоний</button>
+                                        <button id="red" class="btn btn-outline-danger" type="button">Червоний</button>
                                     </a>
                                 </div>
                                 <div class="button color-yellow">
                                     <a href='/yellow'>
                                         <span class="round"></span>
-                                         <!-- <button class="btn btn-outline-warning" type="button">Yellow</button> -->
-                                        <button class="btn btn-outline-warning" type="button">Жовтий</button>
+                                        <button id="yellow" class="btn btn-outline-warning" type="button">Жовтий</button>
                                     </a>
                                 </div>
                                 <div class="button color-green">
                                     <a href='/green'>
                                         <span class="round"></span>
-                                          <!-- <button class="btn btn-outline-success" type="button">Green</button> -->
-                                        <button class="btn btn-outline-success" type="button">Зелений</button>
+                                        <button id="green" class="btn btn-outline-success" type="button">Зелений</button>
                                     </a>
                                 </div>
                                 <div class="button color-blue">
                                     <a href='/blue'>
                                         <span class="round"></span>
-                                        <!-- <button class="btn btn-outline-primary" type="button">Blue</button> -->
-                                        <button class="btn btn-outline-primary" type="button">Синій</button>
+                                        <button id="blue" class="btn btn-outline-primary" type="button">Синій</button>
                                     </a>
                                 </div>
                             </div>

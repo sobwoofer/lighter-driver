@@ -1,7 +1,7 @@
 #include <FastLED.h>
 
 #define COLOR_ORDER GRB
-#define CHIPSET     WS2812
+#define CHIPSET     TM1829 //or WS2812 or TM1829
 #define NUM_LEDS    10
 
 #define BRIGHTNESS_HIGH  220
