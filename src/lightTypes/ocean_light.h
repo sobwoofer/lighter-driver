@@ -17,7 +17,22 @@ void setupOceanLight() {
 void oceanLoop() {
   pacifica_loop();
   FastLED.show();
-  FastLED.delay(1000 / 120);
+  
+  switch (lightSpeed)
+  {
+  case LIGHT_SPEED_LOW:
+    FastLED.delay(1000 / 50);
+    break;
+  case LIGHT_SPEED_MEDIUM:
+    FastLED.delay(1000 / 120);
+    break;
+  case LIGHT_SPEED_HIGH:
+    FastLED.delay(1000 / 320);
+    break;
+  
+  default:
+    break;
+  }
 }
 
 void pacifica_loop() {

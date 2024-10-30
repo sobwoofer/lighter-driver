@@ -1,8 +1,8 @@
 #include <FastLED.h>
 
 #define COLOR_ORDER GRB
-#define CHIPSET     WS2812
-#define NUM_LEDS    9
+#define CHIPSET     TM1829 //or WS2812 or TM1829
+#define NUM_LEDS    10
 
 #define BRIGHTNESS_HIGH  220
 #define BRIGHTNESS_MEDIUM  110
@@ -18,6 +18,10 @@
 #define LIGHT_TYPE_STRIPS  2
 #define LIGHT_TYPE_OCEAN  3
 
+#define LIGHT_SPEED_LOW  1
+#define LIGHT_SPEED_MEDIUM  2
+#define LIGHT_SPEED_HIGH  3
+
 bool gReverseDirection = false;
 
 CRGB leds[NUM_LEDS];
@@ -26,7 +30,8 @@ TBlendType    currentBlending;
 
 int colorType = COLOR_RED;
 int lightType = LIGHT_TYPE_FIRE;
-int brightnessType = BRIGHTNESS_MEDIUM;
+int brightnessType = BRIGHTNESS_HIGH;
+int lightSpeed = LIGHT_SPEED_MEDIUM;
 
 #include "lightTypes/fire_light.h"
 #include "lightTypes/temperature_light.h"
@@ -53,6 +58,13 @@ void selectBrightness(int newBrightness) {
   FastLED.setBrightness( brightnessType);
 }
 
+void selectLightSpeed(int newLightSpeed) {
+  lightSpeed = newLightSpeed;
+  write_param(PARAM_LIGHT_SPEED, String(lightSpeed));
+  save_flag = true;
+  save_param();
+}
+
 void selectColor(int newColor) {
   colorType = newColor;
   write_param(PARAM_COLOR_TYPE, String(colorType));
@@ -72,6 +84,7 @@ void setupLightDriver()
 {  
   lightType = param(PARAM_LIGHT_TYPE).toInt();
   colorType = param(PARAM_COLOR_TYPE).toInt();
+  lightSpeed = param(PARAM_LIGHT_SPEED).toInt();
   if (!param(PARAM_BRIGHTNES_TYPE).toInt()) {
     brightnessType = BRIGHTNESS_MEDIUM;
   } else {

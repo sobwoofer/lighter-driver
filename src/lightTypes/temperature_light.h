@@ -33,5 +33,19 @@ void temperatureLightLoop()
 //   }
   
   FastLED.show();
-  FastLED.delay(8);
+    switch (lightSpeed)
+  {
+  case LIGHT_SPEED_LOW:
+    FastLED.delay(30);
+    break;
+  case LIGHT_SPEED_MEDIUM:
+    FastLED.delay(11);
+    break;
+  case LIGHT_SPEED_HIGH:
+    FastLED.delay(6);
+    break;
+  default:
+   FastLED.delay(10);
+    break;
+  }
 }

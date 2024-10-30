@@ -4,9 +4,11 @@ void ptintdeb(String s)
   Serial.println(s);
 }
 #define DEBG ptintdeb
+#define PARAM_LANG "lang"
 #define PARAM_SOUND_TYPE "sound_type"
 #define PARAM_LIGHT_TYPE "light_type"
 #define PARAM_BRIGHTNES_TYPE "brightnes_type"
+#define PARAM_LIGHT_SPEED "light_speed"
 #define PARAM_COLOR_TYPE "color_type"
 
 String json_config;
@@ -64,6 +66,7 @@ void create_parameters()
     create_param(F(PARAM_LIGHT_TYPE), "0");
     create_param(F(PARAM_COLOR_TYPE), "0"); 
     create_param(F(PARAM_SOUND_TYPE), "0");
+    create_param(F(PARAM_LANG), "0");
     save_flag = true;
     save_param();
 }
